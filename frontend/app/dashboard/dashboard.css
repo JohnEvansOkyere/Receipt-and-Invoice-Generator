@@ -1,0 +1,381 @@
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+  background: var(--background);
+}
+
+.dashboard-content {
+  flex: 1;
+  margin-left: 280px;
+  padding: 3rem;
+  max-width: 1200px;
+}
+
+.dashboard-header {
+  margin-bottom: 3rem;
+}
+
+.dashboard-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  background: var(--text-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dashboard-header p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+/* Onboarding Alert */
+.onboarding-alert {
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.alert-content {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.alert-icon {
+  display: flex;
+  align-items: center;
+}
+
+.alert-icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--secondary);
+}
+
+.alert-text h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.alert-text p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.alert-button {
+  background: var(--primary);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.alert-button:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+/* Action Grid */
+.action-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.action-card {
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.action-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-primary);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+}
+
+.action-card.secondary::before {
+  background: var(--gradient-secondary);
+}
+
+.action-card:hover {
+  transform: translateY(-8px);
+  border-color: transparent;
+  box-shadow: var(--shadow-premium), var(--shadow-glow);
+}
+
+.action-card:hover::before {
+  opacity: 0.05;
+}
+
+.card-visual {
+  width: 64px;
+  height: 64px;
+  background: var(--surface-hover);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.card-visual svg {
+  width: 32px;
+  height: 32px;
+  color: var(--primary);
+}
+
+.card-info {
+  z-index: 1;
+}
+
+.card-info h2 {
+  font-size: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.card-info p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.card-link {
+  font-weight: 700;
+  color: var(--primary);
+  transition: all 0.2s ease;
+}
+
+.action-card.secondary .card-link {
+  color: var(--secondary);
+}
+
+.action-card:hover .card-link {
+  padding-left: 8px;
+}
+
+/* Stats Section */
+.stats-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stat-label {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.stat-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+/* Loading */
+.loading-screen {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--background);
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid var(--surface-border);
+  border-bottom-color: var(--primary);
+  border-radius: 50%;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 1024px) {
+  .dashboard-content {
+    margin-left: 80px;
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-content {
+    margin-left: 0;
+    margin-bottom: 70px;
+    padding: 1.25rem 1rem;
+  }
+  
+  .dashboard-header {
+    margin-bottom: 2rem;
+  }
+  
+  .dashboard-header h1 {
+    font-size: 1.75rem;
+    line-height: 1.2;
+  }
+  
+  .dashboard-header p {
+    font-size: 1rem;
+  }
+  
+  .action-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  
+  .action-card {
+    padding: 2rem 1.5rem;
+    gap: 1.5rem;
+  }
+  
+  .card-visual {
+    width: 56px;
+    height: 56px;
+  }
+  
+  .card-visual svg {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .card-info h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .card-info p {
+    font-size: 0.95rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .onboarding-alert {
+    flex-direction: column;
+    gap: 1.25rem;
+    align-items: flex-start;
+    padding: 1.25rem;
+    margin-bottom: 2rem;
+  }
+  
+  .alert-content {
+    gap: 1rem;
+  }
+  
+  .alert-icon {
+    font-size: 1.25rem;
+  }
+  
+  .alert-text h3 {
+    font-size: 1rem;
+  }
+  
+  .alert-text p {
+    font-size: 0.9rem;
+  }
+  
+  .alert-button {
+    width: 100%;
+    text-align: center;
+    padding: 0.875rem 1.5rem;
+    font-size: 0.95rem;
+  }
+  
+  .stats-section {
+    margin-top: 2rem;
+  }
+  
+  .stats-section h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .stat-card {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-content {
+    padding: 1rem 0.75rem;
+    margin-bottom: 65px;
+  }
+  
+  .dashboard-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .dashboard-header p {
+    font-size: 0.9rem;
+  }
+  
+  .action-card {
+    padding: 1.5rem 1.25rem;
+  }
+  
+  .card-visual {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .card-visual svg {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .card-info h2 {
+    font-size: 1.25rem;
+  }
+  
+  .card-info p {
+    font-size: 0.875rem;
+  }
+}

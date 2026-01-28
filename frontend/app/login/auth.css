@@ -1,0 +1,235 @@
+/* Authentication Pages Styles */
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--background);
+  padding: 2rem;
+}
+
+.auth-card {
+  background: var(--surface);
+  border-radius: 20px;
+  padding: 3rem;
+  width: 100%;
+  max-width: 450px;
+  border: 1px solid var(--surface-light);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.auth-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.auth-header p {
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.form-group input {
+  padding: 0.875rem 1rem;
+  background: var(--background);
+  border: 1px solid var(--surface-light);
+  border-radius: 10px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(107, 70, 193, 0.1);
+}
+
+.auth-button {
+  padding: 1rem;
+  background: var(--gradient-1);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 0.5rem;
+}
+
+.auth-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 30px rgba(107, 70, 193, 0.4);
+}
+
+.auth-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error-message {
+  background: rgba(236, 72, 153, 0.1);
+  border: 1px solid var(--secondary);
+  color: var(--secondary);
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.auth-footer {
+  text-align: center;
+  margin-top: 2rem;
+  color: var(--text-secondary);
+}
+
+.auth-footer a {
+  color: var(--primary-light);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Password Toggle */
+.password-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-input-wrapper input {
+  padding-right: 3rem;
+  width: 100%;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  z-index: 1;
+}
+
+.password-toggle:hover {
+  color: var(--text-primary);
+}
+
+.password-toggle:active {
+  transform: scale(0.95);
+}
+
+.password-toggle svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 2;
+}
+
+@media (max-width: 768px) {
+  .auth-container {
+    padding: 1.5rem 1rem;
+    align-items: flex-start;
+    padding-top: 3rem;
+  }
+
+  .auth-card {
+    padding: 2rem 1.5rem;
+    border-radius: var(--radius-lg);
+  }
+
+  .auth-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .auth-header p {
+    font-size: 0.9rem;
+  }
+
+  .form-group input {
+    padding: 1rem;
+    font-size: 16px; /* Prevents zoom on iOS */
+    min-height: 48px; /* Touch-friendly */
+  }
+
+  .auth-button {
+    padding: 1rem;
+    font-size: 1rem;
+    min-height: 48px; /* Touch-friendly */
+    margin-top: 0.75rem;
+  }
+
+  .auth-footer {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-container {
+    padding: 1rem 0.75rem;
+    padding-top: 2rem;
+  }
+
+  .auth-card {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .auth-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .auth-form {
+    gap: 1.25rem;
+  }
+
+  .password-toggle {
+    right: 0.5rem;
+    padding: 0.5rem;
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .password-toggle svg {
+    width: 18px;
+    height: 18px;
+  }
+}
