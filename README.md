@@ -2,20 +2,20 @@
 
 A full-stack web application for generating professional receipts and invoices. Features email authentication, business profile management, receipt/invoice history, and challenge/dispute system. Built with Next.js, FastAPI, and PostgreSQL (Neon).
 
-## ✨ Features
+## Features
 
-- 🔐 **Email Authentication**: Secure login and registration system
-- 💼 **Business Profiles**: Save your business details once, use everywhere
-- 🧾 **Professional Receipts**: AWS/Claude-style professional receipt format
-- 📋 **Professional Invoices**: Complete invoice management with status tracking
-- 📱 **WhatsApp Sharing**: Share receipts directly via WhatsApp
-- 📄 **PDF Download**: Download high-quality PDFs matching the preview
-- 📊 **History & Tracking**: View all receipts and invoices in one place
-- ⚖️ **Challenge System**: Customers can challenge receipts/invoices
-- 🎨 **Beautiful UI**: Unique color scheme with modern, mobile-first design
-- 💰 **100% Free**: No credit card required, free forever
+- **Email Authentication**: Secure login and registration system
+- **Business Profiles**: Save your business details once, use everywhere
+- **Professional Receipts**: AWS/Claude-style professional receipt format
+- **Professional Invoices**: Complete invoice management with status tracking
+- **WhatsApp Sharing**: Share receipts directly via WhatsApp
+- **PDF Download**: Download high-quality PDFs matching the preview
+- **History & Tracking**: View all receipts and invoices in one place
+- **Challenge System**: Customers can challenge receipts/invoices
+- **Beautiful UI**: Unique color scheme with modern, mobile-first design
+- **100% Free**: No credit card required, free forever
 
-## 🏗️ Architecture
+## Architecture
 
 - **Frontend**: Next.js 14 (App Router), React 18, TypeScript
 - **Backend**: FastAPI, Python 3.11+
@@ -23,14 +23,14 @@ A full-stack web application for generating professional receipts and invoices. 
 - **Authentication**: JWT tokens
 - **PDF Generation**: html2pdf.js
 
-## 📋 Prerequisites
+## Prerequisites
 
 - Node.js 18+ and npm/yarn/pnpm
 - Python 3.11+
 - PostgreSQL database (Neon recommended)
 - pip (Python package manager)
 
-## 🚀 Setup Instructions
+## Setup Instructions
 
 ### 1. Clone the Repository
 
@@ -57,6 +57,7 @@ cp .env.example .env
 ```
 
 **Environment Variables** (`.env`):
+
 ```env
 DATABASE_URL=postgresql://user:password@hostname.neon.tech/dbname?sslmode=require
 SECRET_KEY=your-secret-key-change-in-production-min-32-chars
@@ -82,6 +83,7 @@ alembic upgrade head
 ```
 
 This will create all the necessary tables:
+
 - `users` - User accounts
 - `businesses` - Business profiles
 - `receipts` - Receipt records
@@ -109,6 +111,7 @@ cp .env.example .env.local
 ```
 
 **Environment Variables** (`.env.local`):
+
 ```env
 NEXT_PUBLIC_API_URL=http://localhost:8000
 ```
@@ -116,6 +119,7 @@ NEXT_PUBLIC_API_URL=http://localhost:8000
 ### 5. Run the Application
 
 **Terminal 1 - Backend:**
+
 ```bash
 cd backend
 source venv/bin/activate  # On Windows: venv\Scripts\activate
@@ -126,6 +130,7 @@ python main.py
 Backend will run on `http://localhost:8000`
 
 **Terminal 2 - Frontend:**
+
 ```bash
 cd frontend
 npm run dev
@@ -137,7 +142,7 @@ pnpm dev
 
 Frontend will run on `http://localhost:3000`
 
-## 📖 Usage
+## Usage
 
 ### 1. Registration & Login
 
@@ -181,20 +186,21 @@ Frontend will run on `http://localhost:3000`
 ### 6. Challenge System
 
 Customers can challenge receipts or invoices by:
+
 1. Using the challenge API endpoint
 2. Providing their information and reason
 3. Business owners can view and resolve challenges from their dashboard
 
-## 📁 Project Structure
+## Project Structure
 
-```
+```text
 Receipt-and-Invoice-Generator/
 ├── frontend/                      # Next.js frontend application
 │   ├── app/                       # Next.js app directory
 │   │   ├── page.tsx               # Landing page
 │   │   ├── login/                 # Login page
 │   │   ├── register/              # Registration page
-│   │   ├── dashboard/            # Dashboard pages
+│   │   ├── dashboard/             # Dashboard pages
 │   │   │   ├── page.tsx           # Main dashboard
 │   │   │   ├── business/          # Business profile
 │   │   │   ├── receipt/           # Create receipt
@@ -222,57 +228,64 @@ Receipt-and-Invoice-Generator/
 │   │   └── routers/               # API routes
 │   │       ├── auth.py            # Authentication
 │   │       ├── business.py        # Business profile
-│   │       ├── receipts.py       # Receipts
+│   │       ├── receipts.py        # Receipts
 │   │       ├── invoices.py        # Invoices
 │   │       └── history.py         # History & challenges
 │   └── requirements.txt           # Python dependencies
 └── README.md
 ```
 
-## 🔌 API Endpoints
+## API Endpoints
 
 ### Authentication
+
 - `POST /api/auth/register` - Register new user
 - `POST /api/auth/login` - Login and get token
 - `GET /api/auth/me` - Get current user
 
 ### Business
+
 - `GET /api/business/` - Get business profile
 - `POST /api/business/` - Create/update business profile
 - `PATCH /api/business/` - Update business profile
 
 ### Receipts
+
 - `GET /api/receipts/` - Get all receipts
 - `GET /api/receipts/{id}` - Get specific receipt
 - `POST /api/receipts/` - Create receipt
 
 ### Invoices
+
 - `GET /api/invoices/` - Get all invoices
 - `GET /api/invoices/{id}` - Get specific invoice
 - `POST /api/invoices/` - Create invoice
 - `PATCH /api/invoices/{id}` - Update invoice
 
 ### History
+
 - `GET /api/history/` - Get all receipts and invoices
 - `POST /api/history/challenge` - Create challenge
 - `GET /api/history/challenges` - Get challenges
 - `PATCH /api/history/challenges/{id}` - Resolve challenge
 
-## 🎨 Design
+## Design
 
 The application features a unique color scheme:
+
 - **Primary**: Rich Purple (#6B46C1)
 - **Secondary**: Vibrant Pink (#EC4899)
 - **Accent**: Emerald Green (#10B981)
 - **Background**: Deep Dark Blue (#0F0F23)
 
 Receipts and invoices follow AWS/Claude-style professional formatting with:
+
 - Clean typography
 - Proper spacing and alignment
 - Professional table layouts
 - Clear hierarchy and branding
 
-## 🔒 Security
+## Security
 
 - JWT-based authentication
 - Password hashing with bcrypt
@@ -280,23 +293,26 @@ Receipts and invoices follow AWS/Claude-style professional formatting with:
 - SQL injection protection via SQLAlchemy
 - Input validation with Pydantic
 
-## 🚀 Deployment
+## Deployment
 
 ### Backend (FastAPI)
 
 Deploy to platforms like:
+
 - Railway
 - Render
 - Fly.io
 - DigitalOcean App Platform
 
 Set environment variables:
+
 - `DATABASE_URL`
 - `SECRET_KEY`
 
 ### Frontend (Next.js)
 
 Deploy to:
+
 - Vercel (recommended)
 - Netlify
 - Railway
@@ -305,9 +321,10 @@ Deploy to:
 **Note**: Make sure to deploy from the `frontend/` directory or configure your build tool to use `frontend/` as the root.
 
 Set environment variable:
+
 - `NEXT_PUBLIC_API_URL` (your backend URL)
 
-## 📝 Notes
+## Notes
 
 - All data is stored in PostgreSQL database
 - Business profiles are required before creating receipts/invoices
@@ -315,16 +332,17 @@ Set environment variable:
 - PDF generation happens client-side
 - WhatsApp sharing works with or without phone numbers
 
-## 🤝 Contributing
+## Contributing
 
 Feel free to submit issues or pull requests!
 
-## 📄 License
+## License
 
 See LICENSE file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Built with Next.js, FastAPI, and PostgreSQL
 - PDF generation powered by html2pdf.js
 - Professional receipt design inspired by AWS and Claude receipts
+
